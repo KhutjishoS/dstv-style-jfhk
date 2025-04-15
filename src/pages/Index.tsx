@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ServicesGrid from "@/components/ServicesGrid";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import LocationCoverage from "@/components/LocationCoverage";
+import Areas from "@/components/Areas";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -17,11 +18,12 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-green-50/50 to-transparent -z-10 h-96"></div>
           <ServicesGrid />
         </div>
-        <LocationCoverage />
+        <Areas />
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-green-50/50 to-transparent -z-10"></div>
           <TestimonialsCarousel />
         </div>
+        <LocationCoverage />
         <ContactForm />
       </main>
       <Footer />
