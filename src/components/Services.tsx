@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Satellite, Tv, Tool, WifiIcon, Fingerprint, Antenna } from "lucide-react";
+import { Satellite, Tv, Wrench, WifiIcon, Fingerprint, Antenna } from "lucide-react";
 
 const services = [
   {
@@ -11,7 +11,7 @@ const services = [
   {
     title: "DSTV Repairs",
     description: "Quick diagnosis and repair of all DSTV-related issues including signal problems and hardware failures.",
-    icon: Tool,
+    icon: Wrench,
   },
   {
     title: "Extra View Setup",
