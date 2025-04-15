@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Satellite, Tv, Wrench, WifiIcon, Fingerprint, Antenna } from "lucide-react";
+import { Satellite, Tv, Wrench, WifiIcon, Fingerprint, Antenna, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const services = [
