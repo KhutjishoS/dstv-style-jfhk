@@ -1,6 +1,5 @@
-
 import { Card, CardContent } from "@/components/ui/card";
-import { Satellite, Tv, Wrench, WifiIcon, Fingerprint, Antenna } from "lucide-react";
+import { Satellite, Tv, Wrench, WifiIcon, Antenna } from "lucide-react";
 
 const services = [
   {
@@ -27,11 +26,6 @@ const services = [
     title: "Smart Home Integration",
     description: "Connect your DSTV system to your smart home setup for seamless entertainment control.",
     icon: WifiIcon,
-  },
-  {
-    title: "Access Control",
-    description: "Installation of access control systems including electric fencing and security gates.",
-    icon: Fingerprint,
   },
 ];
 

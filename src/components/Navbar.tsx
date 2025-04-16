@@ -1,109 +1,98 @@
-
 import { Button } from "@/components/ui/button";
-import { Menu, Phone } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
+const navigation = [
+  { name: 'Home', href: '/', id: 'home' },
+  { name: 'Services', href: '#services', id: 'services' },
+  { name: 'Coverage Areas', href: '#areas', id: 'areas' },
+  { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
+  { name: 'Contact', href: '#contact', id: 'contact' },
+];
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 50);
     };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    event.preventDefault();
-    setMobileMenuOpen(false);
-    
-    const element = document.getElementById(id);
-    if (element) {
-      const offsetPosition = element.offsetTop - 100;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
-  const handleQuoteClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      const offsetPosition = contactSection.offsetTop - 100;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+  const handleNavigation = (href: string) => {
+    if (href === '/') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   return (
     <header 
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? "bg-blue-50/95 backdrop-blur-md shadow-md" : "bg-blue-50/80 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2">
-          <a href="#" className="text-xl font-display font-bold gradient-text">DSTV Installers</a>
+          <a 
+            href="/" 
+            className="text-2xl font-display font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent hover:from-green-700 hover:to-green-900 transition-all"
+            onClick={() => handleNavigation('/')}
+          >
+            DSTV Installers
+          </a>
         </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          <a 
-            href="#services" 
-            className="nav-link relative py-2 hover:text-green-600 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all hover:after:w-full" 
-            onClick={(e) => handleNavClick(e, "services")}
-          >
-            Services
-          </a>
-          <a 
-            href="#areas" 
-            className="nav-link relative py-2 hover:text-green-600 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all hover:after:w-full" 
-            onClick={(e) => handleNavClick(e, "areas")}
-          >
-            Coverage Areas
-          </a>
-          <a 
-            href="#testimonials" 
-            className="nav-link relative py-2 hover:text-green-600 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all hover:after:w-full" 
-            onClick={(e) => handleNavClick(e, "testimonials")}
-          >
-            Testimonials
-          </a>
-          <a 
-            href="#contact" 
-            className="nav-link relative py-2 hover:text-green-600 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all hover:after:w-full" 
-            onClick={(e) => handleNavClick(e, "contact")}
-          >
-            Contact
-          </a>
+        <nav className="hidden md:flex items-center gap-8">
+          {navigation.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => handleNavigation(item.href)}
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === item.href || 
+                (location.pathname === '/' && window.location.hash === item.href)
+                  ? 'text-green-600'
+                  : 'text-gray-600 hover:text-green-600'
+              }`}
+            >
+              {item.name === 'Home' ? (
+                <div className="flex items-center gap-1">
+                  <Home className="h-4 w-4" />
+                  <span>{item.name}</span>
+                </div>
+              ) : item.name}
+            </button>
+          ))}
         </nav>
         
+        {/* Mobile menu button and quote button */}
         <div className="flex items-center gap-4">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="rounded-full md:hidden" 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="rounded-full md:hidden hover:bg-blue-100" 
+            onClick={() => setIsOpen(!isOpen)}
           >
-            <Menu className="h-5 w-5" />
+            {isOpen ? <X className="h-5 w-5 text-gray-700" /> : <Menu className="h-5 w-5 text-gray-700" />}
             <span className="sr-only">Menu</span>
           </Button>
           
-          <a href="tel:+27123456789" className="hidden md:flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-full transition-colors">
-            <Phone className="h-4 w-4" />
-            <span className="font-medium">011 234 5678</span>
-          </a>
-          
           <Button 
-            onClick={handleQuoteClick}
-            className="hidden md:flex rounded-full bg-gradient-to-r from-[#166534] to-[#16a34a] hover:opacity-90"
+            onClick={() => handleNavigation('#contact')}
+            className="rounded-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-lg hover:shadow-xl transition-all"
           >
             Get a Free Quote
           </Button>
@@ -111,27 +100,31 @@ const Navbar = () => {
       </div>
       
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+      {isOpen && (
+        <div className="md:hidden bg-blue-50 shadow-lg animate-in slide-in-from-top duration-300">
           <nav className="container mx-auto py-4 px-4 flex flex-col">
-            <a href="#services" className="py-2 px-4 hover:bg-primary/5 rounded-md" onClick={(e) => handleNavClick(e, "services")}>Services</a>
-            <a href="#areas" className="py-2 px-4 hover:bg-primary/5 rounded-md" onClick={(e) => handleNavClick(e, "areas")}>Coverage Areas</a>
-            <a href="#testimonials" className="py-2 px-4 hover:bg-primary/5 rounded-md" onClick={(e) => handleNavClick(e, "testimonials")}>Testimonials</a>
-            <a href="#contact" className="py-2 px-4 hover:bg-primary/5 rounded-md" onClick={(e) => handleNavClick(e, "contact")}>Contact</a>
-            
-            <div className="mt-4 flex flex-col gap-2">
-              <a href="tel:+27123456789" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-md transition-colors">
-                <Phone className="h-4 w-4" />
-                <span className="font-medium">011 234 5678</span>
-              </a>
-              
-              <Button 
-                onClick={handleQuoteClick}
-                className="w-full rounded-md bg-gradient-to-r from-[#166534] to-[#16a34a] hover:opacity-90"
+            {navigation.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => {
+                  handleNavigation(item.href);
+                  setIsOpen(false);
+                }}
+                className={`py-3 px-4 hover:bg-blue-100 rounded-md text-gray-700 font-medium transition-colors ${
+                  location.pathname === item.href || 
+                  (location.pathname === '/' && window.location.hash === item.href)
+                    ? 'bg-green-50 text-green-600'
+                    : 'text-gray-600 hover:bg-green-50 hover:text-green-600'
+                }`}
               >
-                Get a Free Quote
-              </Button>
-            </div>
+                {item.name === 'Home' ? (
+                  <div className="flex items-center gap-2">
+                    <Home className="h-4 w-4" />
+                    <span>{item.name}</span>
+                  </div>
+                ) : item.name}
+              </button>
+            ))}
           </nav>
         </div>
       )}

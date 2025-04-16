@@ -1,12 +1,20 @@
-
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Phone, Mail, Clock, Check } from "lucide-react";
+import { Phone, Mail, Clock, Check, Satellite, Wrench, Tv, Antenna, MoreHorizontal } from "lucide-react";
 import { useState } from "react";
 
 const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  
+  const services = [
+    { id: "installation", name: "DSTV Installation", icon: Satellite },
+    { id: "repair", name: "DSTV Repair", icon: Wrench },
+    { id: "extraview", name: "Extra View Setup", icon: Tv },
+    { id: "signal", name: "Signal Issues", icon: Antenna },
+    { id: "other", name: "Other Services", icon: MoreHorizontal },
+  ];
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 scroll-mt-24">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Contact Us</span>
@@ -87,38 +95,57 @@ const ContactForm = () => {
                   <p className="text-green-700 text-sm">We'll be in touch shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <Label className="text-lg font-semibold mb-3 block">Select Service Required</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                      {services.map((service) => (
+                        <button
+                          key={service.id}
+                          type="button"
+                          onClick={() => setSelectedService(service.id)}
+                          className={`relative flex flex-col items-center justify-center p-6 rounded-xl border-2 transition-all duration-200 hover:scale-105 ${
+                            selectedService === service.id
+                              ? 'border-green-600 bg-green-50/80 text-green-700 shadow-lg shadow-green-100'
+                              : 'border-neutral-200 hover:border-green-400 hover:bg-green-50/30 hover:shadow-md'
+                          }`}
+                        >
+                          <service.icon className={`h-8 w-8 mb-3 ${
+                            selectedService === service.id ? 'text-green-600' : 'text-neutral-500'
+                          }`} />
+                          <span className="text-base font-medium text-center">{service.name}</span>
+                          {selectedService === service.id && (
+                            <div className="absolute top-2 right-2">
+                              <Check className="h-5 w-5 text-green-600" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" placeholder="Your name" required />
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input id="firstName" placeholder="Your first name" required />
                     </div>
                     
+                    <div>
+                      <Label htmlFor="surname">Surname</Label>
+                      <Input id="surname" placeholder="Your surname" required />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input id="phone" placeholder="Your phone number" required />
                     </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" placeholder="Your email" required />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="service">Service Required</Label>
-                    <select 
-                      id="service"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      required
-                    >
-                      <option value="">Select a service</option>
-                      <option value="installation">DSTV Installation</option>
-                      <option value="repair">DSTV Repair</option>
-                      <option value="extraview">Extra View Setup</option>
-                      <option value="signal">Signal Issues</option>
-                      <option value="other">Other</option>
-                    </select>
+                    
+                    <div>
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input id="email" type="email" placeholder="Your email" required />
+                    </div>
                   </div>
                   
                   <div>

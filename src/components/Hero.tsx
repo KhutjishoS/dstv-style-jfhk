@@ -1,8 +1,21 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 
 const Hero = () => {
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const navbarHeight = 80; // Height of the fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-green-50 to-white">
       {/* Background elements */}
@@ -34,11 +47,20 @@ const Hero = () => {
             </ul>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button size="lg" className="rounded-full bg-gradient-to-r from-green-700 to-green-600 hover:opacity-90 px-8">
+              <Button 
+                size="lg" 
+                className="rounded-full bg-gradient-to-r from-green-700 to-green-600 hover:opacity-90 px-8"
+                onClick={() => handleScroll('contact')}
+              >
                 Request Service
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="rounded-full"
+                onClick={() => handleScroll('services')}
+              >
                 View Our Services
               </Button>
             </div>

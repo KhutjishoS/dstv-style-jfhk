@@ -1,4 +1,3 @@
-
 import { TwitterIcon, GitHubIcon } from "./SocialIcons";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
@@ -57,7 +56,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-neutral-800 mt-12 pt-8 text-center text-sm text-neutral-500">
-          <p>© {new Date().getFullYear()} DSTV Installers Fourways. All rights reserved. | <a href="#" className="hover:text-green-500 transition-colors">Privacy Policy</a> | <a href="#" className="hover:text-green-500 transition-colors">Terms of Service</a></p>
+          <p>© {new Date().getFullYear()} DSTV Installers Mzansi. All rights reserved. | <a href="#" className="hover:text-green-500 transition-colors">Privacy Policy</a> | <a href="#" className="hover:text-green-500 transition-colors">Terms of Service</a></p>
         </div>
       </div>
     </footer>
