@@ -161,6 +161,16 @@ const ContactForm = () => {
                       placeholder="Please provide any specific details about your request"
                     ></textarea>
                   </div>
+               
+                  // Email sending endpoint
+app.post("/send-email", async (req, res) => {
+  const { firstName, surname, phone, email, address, message, selectedService } = req.body;
+
+  try {
+    await transporter.sendMail({
+      from: '"DSTV Installers" <ssuummeerr55th@gmail.com>',
+      to: ssuummeerr55th@gmail.com // Customer's email
+      subject: "Your Quotation Request",
                   
                   <Button type="submit" className="w-full bg-gradient-to-r from-green-700 to-green-600 hover:shadow-lg hover:shadow-green-700/20">
                     Submit Request
