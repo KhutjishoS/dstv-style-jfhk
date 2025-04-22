@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -53,7 +52,7 @@ const TestimonialsCarousel = () => {
     <section id="testimonials" className="py-20">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Testimonials</span>
+          <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Testimonials</span>
           <h2 className="text-3xl font-display font-bold mt-4 mb-2">What Our Customers Say</h2>
           <p className="text-muted-foreground">
             Don't just take our word for it - hear from our satisfied customers
@@ -81,7 +80,7 @@ const TestimonialsCarousel = () => {
                               />
                             </div>
                             <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-1 shadow">
-                              <Quote className="h-4 w-4 text-green-600" />
+                              <Quote className="h-4 w-4 text-blue-600" />
                             </div>
                           </div>
                         </div>
@@ -112,27 +111,27 @@ const TestimonialsCarousel = () => {
           
           <button 
             onClick={prevTestimonial}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-green-50"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-blue-50"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="h-5 w-5 text-green-600" />
+            <ChevronLeft className="h-5 w-5 text-blue-600" />
           </button>
           
           <button 
             onClick={nextTestimonial}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-green-50"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-blue-50"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="h-5 w-5 text-green-600" />
+            <ChevronRight className="h-5 w-5 text-blue-600" />
           </button>
           
-          <div className="flex justify-center mt-6 gap-2">
+          <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all ${
-                  index === currentIndex ? "w-8 bg-green-600" : "w-2 bg-green-200"
+                  index === currentIndex ? "w-8 bg-blue-600" : "w-2 bg-blue-200"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

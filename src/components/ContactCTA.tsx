@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -22,8 +21,7 @@ const ContactCTA = () => {
                 </div>
                 <div>
                   <h3 className="font-bold">Phone</h3>
-                  <p className="text-green-100">011 234 5678</p>
-                  <p className="text-green-100">072 345 6789</p>
+                  <p className="text-green-100">+27 78 863 0783</p>
                 </div>
               </div>
               
@@ -33,7 +31,7 @@ const ContactCTA = () => {
                 </div>
                 <div>
                   <h3 className="font-bold">Email</h3>
-                  <p className="text-green-100">info@dstvinstallers.co.za</p>
+                  <p className="text-green-100">admin@dishtechconnect.co.za</p>
                 </div>
               </div>
               

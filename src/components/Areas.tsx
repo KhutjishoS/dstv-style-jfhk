@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import { useState } from "react";
@@ -60,7 +59,7 @@ const Areas = () => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
-            <div className="bg-green-50 p-8 rounded-2xl">
+            <div className="bg-blue-50 p-8 rounded-2xl">
               <h2 className="text-3xl font-display font-bold mb-6">Nationwide DSTV Installation</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Our team of certified technicians provides fast and reliable DSTV installation services across all of South Africa:
@@ -73,8 +72,8 @@ const Areas = () => {
                     onClick={() => handleProvinceClick(province)}
                     className={`px-3 py-1.5 text-sm font-medium rounded-full transition-all ${
                       activeProvince === province 
-                        ? "bg-green-600 text-white" 
-                        : "bg-green-100 text-green-800 hover:bg-green-200"
+                        ? "bg-blue-600 text-white" 
+                        : "bg-blue-100 text-blue-800 hover:bg-blue-200"
                     }`}
                   >
                     {province}
@@ -86,52 +85,53 @@ const Areas = () => {
                 {showAllProvinces ? (
                   Object.entries(serviceAreasByProvince).map(([province, areas]) => (
                     <div key={province} className="mb-4">
-                      <h3 className="font-medium text-green-800 mb-2">{province}</h3>
+                      <h3 className="font-medium text-blue-800 mb-2">{province}</h3>
                       {areas.slice(0, 5).map((area, i) => (
                         <div key={i} className="flex items-center gap-2 mb-1">
-                          <MapPin className="h-4 w-4 text-green-600" />
+                          <MapPin className="h-4 w-4 text-blue-600" />
                           <span>{area}</span>
                         </div>
                       ))}
-                      {areas.length > 5 && <span className="text-sm text-green-600 ml-6">+{areas.length - 5} more</span>}
+                      {areas.length > 5 && <span className="text-sm text-blue-600 ml-6">+{areas.length - 5} more</span>}
                     </div>
                   ))
                 ) : (
                   serviceAreasByProvince[activeProvince].map((area, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-green-600" />
+                      <MapPin className="h-4 w-4 text-blue-600" />
                       <span>{area}</span>
                     </div>
                   ))
                 )}
               </div>
               
-              <div className="flex justify-between items-center">
-                <Button 
-                  onClick={toggleShowAllProvinces} 
-                  variant="outline" 
-                  className="text-green-700 border-green-200 hover:bg-green-50"
+              <div className="flex gap-4">
+                <button
+                  onClick={toggleShowAllProvinces}
+                  className="text-sm font-medium text-blue-600 hover:text-blue-700"
                 >
-                  {showAllProvinces ? "Show Selected Province" : "View All Provinces"}
-                </Button>
-                
-                <Button className="rounded-full bg-gradient-to-r from-green-700 to-green-600 hover:opacity-90">
+                  View All Provinces
+                </button>
+                <button
+                  onClick={() => window.location.href = '#contact'}
+                  className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700"
+                >
                   Check Availability
-                </Button>
+                </button>
               </div>
             </div>
           </div>
           
           <div className="flex-1">
             <div className="relative">
-              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-green-200 to-green-100 rounded-2xl transform rotate-3"></div>
+              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-blue-200 to-blue-100 rounded-2xl transform rotate-3"></div>
               <img 
                 src="https://images.unsplash.com/photo-1562504208-03d85cc8c23e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
                 alt="Map of South Africa showing service areas" 
                 className="rounded-2xl relative z-10 shadow-lg"
               />
               <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg shadow-lg z-20">
-                <p className="text-sm font-medium text-green-800">Covering all 9 provinces</p>
+                <p className="text-sm font-medium text-blue-800">Covering all 9 provinces</p>
               </div>
             </div>
           </div>

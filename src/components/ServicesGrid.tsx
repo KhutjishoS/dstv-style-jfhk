@@ -54,7 +54,7 @@ const ServicesGrid = () => {
     <section id="services" className="py-4 md:py-12 bg-gradient-to-b from-white to-neutral-50 scroll-mt-16">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-6">
-          <div className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 font-medium text-sm mb-2">
+          <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium text-sm mb-2">
             Our Services
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-2">
@@ -68,49 +68,49 @@ const ServicesGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-left mb-6">
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>DStv Explora, Standard & HD Decoder Installations</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Extra View & Triple View Setup</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Signal Troubleshooting & Repairs</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Additional TV Points Installation</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Surround Sound Setup & Configuration</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Fiber to DStv Integration</span>
             </li>
           </ul>
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Installations for Complexes, Hotels & Guest Houses</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>DStv Cables & Accessories Replacement</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>Satellite Dish Mounting, Alignment & Relocation</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>TV, Decoder & Projector Wall Mounting</span>
             </li>
             <li className="flex items-start gap-2">
-              <ArrowRight className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+              <ArrowRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
               <span>System Upgrades & General Repairs</span>
             </li>
           </ul>
@@ -138,12 +138,12 @@ const ServicesGrid = () => {
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                   </div>
                   <div className="flex justify-end p-3 border-t bg-gradient-to-r from-neutral-50 to-white">
-                    <span className="text-sm font-medium text-green-600 flex items-center group hover:text-green-700 transition-colors">
+                    <span className="text-sm font-medium text-blue-600 flex items-center group hover:text-blue-700 transition-colors">
                       Learn more 
                       <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
-                  <div className="h-1 bg-gradient-to-r from-green-500 to-green-300"></div>
+                  <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-300"></div>
                   </CardContent>
                 </Card>
             </motion.div>
@@ -153,7 +153,7 @@ const ServicesGrid = () => {
         <div className="mt-6 text-center">
           <a 
             href="#contact" 
-            className="inline-flex items-center text-green-600 font-medium hover:text-green-700 group bg-green-50 py-2 px-5 rounded-full transition-all hover:bg-green-100"
+            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 group bg-blue-50 py-2 px-5 rounded-full transition-all hover:bg-blue-100"
           >
             Need a custom solution? Contact us
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

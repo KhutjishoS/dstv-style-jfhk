@@ -20,12 +20,12 @@ const Index = () => {
       <main className="flex-grow pt-20">
         <HeroSection />
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-green-50/50 to-transparent -z-10 h-96"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent -z-10 h-96"></div>
           <ServicesGrid />
         </div>
         <Areas />
         <div className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-green-50/50 to-transparent -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-50/50 to-transparent -z-10"></div>
           <TestimonialsCarousel />
         </div>
         <ContactForm />

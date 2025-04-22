@@ -5,19 +5,19 @@ const HeroSection = () => {
     <section className="relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-green-100 rounded-bl-[200px] opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-green-200 rounded-tr-[200px] opacity-20"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-blue-100 rounded-bl-[200px] opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-blue-200 rounded-tr-[200px] opacity-20"></div>
       </div>
       
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 space-y-6 animate-fade-in">
-            <div className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 font-medium text-sm mb-2">
+            <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium text-sm mb-2">
               Professional DSTV Services
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              Expert <span className="text-green-600">DStv Installations</span> in Mzansi
+              Expert <span className="text-blue-600">DStv Installations</span> in Mzansi
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-xl">
@@ -32,7 +32,7 @@ const HeroSection = () => {
                 "Quality guaranteed"
               ].map((benefit, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm md:text-base">{benefit}</span>
                 </div>
               ))}

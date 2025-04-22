@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <a 
             href="/" 
-            className="text-2xl font-display font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent hover:from-green-700 hover:to-green-900 transition-all"
+            className="text-2xl font-display font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-700 hover:to-blue-900 transition-all"
             onClick={() => handleNavigation('/')}
           >
             DSTV Installers
@@ -64,8 +64,8 @@ const Navbar = () => {
               className={`text-sm font-medium transition-colors ${
                 location.pathname === item.href || 
                 (location.pathname === '/' && window.location.hash === item.href)
-                  ? 'text-green-600'
-                  : 'text-gray-600 hover:text-green-600'
+                  ? 'text-blue-600'
+                  : 'text-gray-600 hover:text-blue-600'
               }`}
             >
               {item.name === 'Home' ? (
@@ -92,7 +92,7 @@ const Navbar = () => {
           
           <Button 
             onClick={() => handleNavigation('#contact')}
-            className="rounded-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-lg hover:shadow-xl transition-all"
+            className="rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all"
           >
             Get a Free Quote
           </Button>
@@ -113,8 +113,8 @@ const Navbar = () => {
                 className={`py-3 px-4 hover:bg-blue-100 rounded-md text-gray-700 font-medium transition-colors ${
                   location.pathname === item.href || 
                   (location.pathname === '/' && window.location.hash === item.href)
-                    ? 'bg-green-50 text-green-600'
-                    : 'text-gray-600 hover:bg-green-50 hover:text-green-600'
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
                 }`}
               >
                 {item.name === 'Home' ? (
