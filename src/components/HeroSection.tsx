@@ -2,11 +2,11 @@ import { CheckCircle } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-blue-50">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-blue-100 rounded-bl-[200px] opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-blue-200 rounded-tr-[200px] opacity-20"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-blue-100 rounded-bl-[200px] opacity-30"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-blue-200 rounded-tr-[200px] opacity-30"></div>
       </div>
       
       <div className="container mx-auto px-4 py-16 md:py-24">
