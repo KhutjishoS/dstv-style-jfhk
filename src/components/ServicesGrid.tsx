@@ -116,7 +116,7 @@ const ServicesGrid = () => {
           </ul>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 max-w-6xl mx-auto">
+        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-5 gap-3 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}

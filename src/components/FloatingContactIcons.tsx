@@ -1,4 +1,4 @@
-import { PhoneOutgoing, MailCheck } from "lucide-react";
+import { PhoneOutgoing } from "lucide-react";
 import { useState } from "react";
 
 const WhatsAppIcon = () => (
@@ -39,15 +39,6 @@ const FloatingContactIcons = () => {
             title="Call Us"
           >
             <PhoneOutgoing className="h-7 w-7" />
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:admin@dishtechconnect.co.za"
-            className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-all hover:scale-110 hover:shadow-xl flex items-center justify-center"
-            title="Email Us"
-          >
-            <MailCheck className="h-7 w-7" />
           </a>
         </div>
       )}

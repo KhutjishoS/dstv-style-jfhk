@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home } from "lucide-react";
+import { Menu, X, Home, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -38,13 +38,17 @@ const Navbar = () => {
     }
   };
 
+  const handleCall = () => {
+    window.location.href = 'tel:+27788630783'; // Replace with your actual phone number
+  };
+
   return (
     <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled ? "bg-blue-50/95 backdrop-blur-md shadow-md" : "bg-blue-50/80 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2">
           <a 
             href="/" 
@@ -90,12 +94,22 @@ const Navbar = () => {
             <span className="sr-only">Menu</span>
           </Button>
           
-          <Button 
-            onClick={() => handleNavigation('#contact')}
-            className="rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all"
-          >
-            Get a Free Quote
-          </Button>
+          <div className="flex flex-col md:flex-row items-end gap-2">
+            <Button 
+              onClick={() => handleNavigation('#contact')}
+              className="h-6 md:h-7 w-[140px] md:w-auto rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all text-xs order-1 md:order-2"
+            >
+              Get a Free Quote
+            </Button>
+            
+            <Button 
+              onClick={handleCall}
+              className="h-6 md:h-7 w-[140px] md:w-auto rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-1.5 text-xs order-2 md:order-1"
+            >
+              <Phone className="h-3 w-3" />
+              <span>+27 78 863 0783</span>
+            </Button>
+          </div>
         </div>
       </div>
       
